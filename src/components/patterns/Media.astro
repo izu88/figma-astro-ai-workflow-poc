@@ -1,0 +1,29 @@
+---
+type MediaVariant = "image-right" | "image-left";
+
+interface Props {
+  variant?: MediaVariant;
+  class?: string;
+}
+
+const {
+  variant = "image-right",
+  class: className = "",
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    "c-media",
+    `c-media--${variant}`,
+    className,
+  ]}
+>
+  <div class="c-media__body">
+    <slot />
+  </div>
+
+  <div class="c-media__visual">
+    <slot name="media" />
+  </div>
+</div>

@@ -1,0 +1,22 @@
+---
+const { meta = {} } = Astro.props;
+
+const siteName = meta.siteName ?? "Astro Simple Template";
+const title = meta.title ? `${meta.title} | ${siteName}` : siteName;
+const description = meta.description ?? "";
+const ogType = meta.ogType ?? "website";
+const ogImage = meta.ogImage ?? "/assets/img/ogp.png";
+const canonical = meta.canonical;
+---
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title>
+{description && <meta name="description" content={description}>}
+{canonical && <link rel="canonical" href={canonical}>}
+<meta property="og:site_name" content={siteName}>
+<meta property="og:title" content={title}>
+{description && <meta property="og:description" content={description}>}
+<meta property="og:type" content={ogType}>
+<meta property="og:image" content={ogImage}>
+<meta name="twitter:card" content="summary_large_image">

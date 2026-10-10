@@ -1,0 +1,28 @@
+---
+type TextTag = "p" | "span" | "div";
+type TextVariant = "default" | "lead" | "muted" | "label" | "small";
+
+interface Props {
+  as?: TextTag;
+  variant?: TextVariant;
+  class?: string;
+}
+
+const {
+  as = "p",
+  variant = "default",
+  class: className = "",
+} = Astro.props;
+
+const Tag = as;
+---
+
+<Tag
+  class:list={[
+    "c-text",
+    `c-text--${variant}`,
+    className,
+  ]}
+>
+  <slot />
+</Tag>

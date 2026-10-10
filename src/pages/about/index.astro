@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Heading from "../../components/base/Heading.astro";
+import Text from "../../components/base/Text.astro";
+import Hero from "../../components/sections/Hero.astro";
+import Section from "../../components/sections/Section.astro";
+
+const meta = {
+  title: "About",
+  description: "このテンプレートのv2 Design Systemと運用方針を紹介する下層ページの例です。",
+};
+
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "About" },
+];
+---
+
+<BaseLayout meta={meta} breadcrumbs={breadcrumbs} bodyClass="page-about">
+  <main>
+    <Hero>
+      <Text variant="label">About</Text>
+      <Heading as="h1" variant="page">このテンプレートについて</Heading>
+      <Text variant="lead">
+        Design Systemを再利用しながら、静的HTML納品時の見通しとHTML/CSS担当者の編集しやすさを両立します。
+      </Text>
+    </Hero>
+
+    <Section>
+      <Heading as="h2" variant="section">編集ルール</Heading>
+
+      <p>
+        ページ本文はDesign System componentと通常のHTMLを組み合わせて記述します。
+        再利用UIは既存componentを優先し、本文・list・tableなどは必要以上にpropsへ閉じ込めません。
+      </p>
+
+      <table class="c-table">
+        <tbody>
+          <tr>
+            <th>共通枠</th>
+            <td>BaseLayout、HeadMeta、Header、Footer、Breadcrumb</td>
+          </tr>
+          <tr>
+            <th>再利用UI</th>
+            <td>Heading、Text、Button、Card、Media、Hero、Section</td>
+          </tr>
+          <tr>
+            <th>CSS / JS</th>
+            <td>SCSS / TypeScriptを編集し、固定パスのCSS / JavaScriptへbuild</td>
+          </tr>
+        </tbody>
+      </table>
+    </Section>
+  </main>
+</BaseLayout>

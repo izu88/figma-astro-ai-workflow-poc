@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PilotHeader from "../../../components/pilot/PilotHeader.astro";
+import PilotFooter from "../../../components/pilot/PilotFooter.astro";
+import Heading from "../../../components/base/Heading.astro";
+import Text from "../../../components/base/Text.astro";
+import Card from "../../../components/patterns/Card.astro";
+import Media from "../../../components/patterns/Media.astro";
+import Hero from "../../../components/sections/Hero.astro";
+import Section from "../../../components/sections/Section.astro";
+
+const meta = {
+  siteName: "NAGI STUDIO",
+  title: "サービス",
+  description: "FigmaからAstroへのDesign System Handoffを検証するサービスページです。",
+};
+---
+
+<BaseLayout meta={meta} bodyClass="page-pilot">
+  <PilotHeader slot="header" active="services" />
+  <main class="p-pilot" id="main-content">
+    <Hero variant="subtle" class="p-pilot-hero">
+      <Text variant="label" class="p-pilot-eyebrow">OUR SERVICES</Text>
+      <Heading as="h1" variant="page">サービス</Heading>
+      <p class="p-pilot-hero__lead">プロジェクトに合わせて、設計から開発・品質確認まで支援します。</p>
+    </Hero>
+
+    <Section class="p-pilot-section">
+      <Heading as="h2" variant="section">提供する価値</Heading>
+      <p class="p-pilot-intro">再利用性と運用のしやすさを重視した、持続可能な制作。</p>
+      <div class="p-pilot-cards">
+        <Card variant="default" class="p-pilot-card">
+          <Heading as="h3" variant="subsection">設計を揃える</Heading>
+          <p>色・余白・UIのルールを統一して手戻りを削減。</p>
+        </Card>
+        <Card variant="subtle" class="p-pilot-card">
+          <Heading as="h3" variant="subsection">運用を育てる</Heading>
+          <p>編集しやすい構造と品質基準を整備。</p>
+        </Card>
+      </div>
+    </Section>
+
+    <Section variant="subtle" class="p-pilot-section p-pilot-section--media">
+      <Media variant="image-left" class="p-pilot-media">
+        <div slot="media" class="p-pilot-media__placeholder" aria-hidden="true">Media</div>
+        <Heading as="h2" variant="colored">検証まで一貫して</Heading>
+        <p>ブラウザと自動テストで表示や操作を確かめます。</p>
+      </Media>
+    </Section>
+  </main>
+  <PilotFooter slot="footer" />
+</BaseLayout>

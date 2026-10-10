@@ -1,0 +1,29 @@
+.c-media {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+  align-items: center;
+  gap: var(--space-40);
+}
+
+.c-media--image-left .c-media__visual {
+  order: -1;
+}
+
+.c-media__body > * + * {
+  margin-top: var(--space-16);
+}
+
+.c-media__visual > :first-child {
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .c-media {
+    grid-template-columns: 1fr;
+    gap: var(--space-24);
+  }
+
+  .c-media--image-left .c-media__visual {
+    order: initial;
+  }
+}

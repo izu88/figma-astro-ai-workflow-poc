@@ -1,0 +1,31 @@
+.c-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+  font-size: 15px;
+}
+
+.c-table th,
+.c-table td {
+  border: 1px solid var(--color-border);
+  padding: 14px 16px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c-table th {
+  width: 28%;
+  background: var(--color-bg-soft);
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .c-table,
+  .c-table tbody,
+  .c-table tr,
+  .c-table th,
+  .c-table td {
+    display: block;
+    width: 100%;
+  }
+}

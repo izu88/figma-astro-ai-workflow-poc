@@ -1,0 +1,26 @@
+---
+import HeadMeta from "../components/HeadMeta.astro";
+import Header from "../components/global/Header.astro";
+import Footer from "../components/global/Footer.astro";
+import Breadcrumb from "../components/patterns/Breadcrumb.astro";
+
+const {
+  meta = {},
+  breadcrumbs = [],
+  bodyClass = "",
+} = Astro.props;
+---
+<!doctype html>
+<html lang="ja">
+  <head>
+    <HeadMeta meta={meta} />
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/common.js" defer></script>
+  </head>
+  <body class={bodyClass}>
+    <slot name="header"><Header /></slot>
+    {breadcrumbs.length > 0 && <Breadcrumb items={breadcrumbs} />}
+    <slot />
+    <slot name="footer"><Footer /></slot>
+  </body>
+</html>

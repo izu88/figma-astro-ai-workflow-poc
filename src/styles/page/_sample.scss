@@ -1,0 +1,45 @@
+.p-sample-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-20);
+}
+
+.p-sample-actions {
+  margin-top: var(--space-16);
+}
+
+.p-sample-media-placeholder {
+  display: grid;
+  min-height: 240px;
+  place-items: center;
+  border-radius: var(--radius-lg);
+  background: var(--color-brand-primary);
+  color: var(--color-on-brand);
+  font-weight: var(--font-weight-bold);
+}
+
+@media (max-width: 800px) {
+  .p-sample-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Figma Design SystemとのContract検証に使うサンプル表示 */
+.p-sample-contract {
+  display: grid;
+  gap: var(--space-32);
+  margin-top: var(--space-24);
+}
+
+.p-sample-contract-group,
+.p-sample-contract-stack {
+  display: grid;
+  gap: var(--space-16);
+}
+
+.p-sample-contract-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-16);
+}

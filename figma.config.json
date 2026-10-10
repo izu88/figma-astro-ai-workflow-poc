@@ -1,0 +1,14 @@
+{
+  "codeConnect": {
+    "include": [
+      "figma/code-connect/**/*.figma.ts"
+    ],
+    "exclude": [
+      "node_modules/**",
+      "dist/**"
+    ],
+    "label": "Astro",
+    "language": "html",
+    "defaultBranch": "main"
+  }
+}

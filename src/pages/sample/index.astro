@@ -1,0 +1,130 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Heading from "../../components/base/Heading.astro";
+import Text from "../../components/base/Text.astro";
+import Button from "../../components/base/Button.astro";
+import Card from "../../components/patterns/Card.astro";
+import Media from "../../components/patterns/Media.astro";
+import Hero from "../../components/sections/Hero.astro";
+import Section from "../../components/sections/Section.astro";
+
+const meta = {
+  title: "Sample",
+  description: "Design Systemコンポーネントを組み合わせるv2サンプルページです。",
+};
+
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Sample" },
+];
+---
+
+<BaseLayout meta={meta} breadcrumbs={breadcrumbs} bodyClass="page-sample">
+  <main class="p-sample">
+    <Hero>
+      <Text variant="label">Sample</Text>
+      <Heading as="h1" variant="page">Design System サンプル</Heading>
+      <Text variant="lead">
+        .astroは「HTML + 共通パーツタグ」として扱い、本文は通常のHTMLに近い形で編集します。
+      </Text>
+    </Hero>
+
+    <Section>
+      <Heading as="h2" variant="border">よく使うコンポーネント</Heading>
+
+      <div class="p-sample-grid">
+        <Card>
+          <Heading as="h3" variant="subsection">カードタイトル</Heading>
+          <Text>
+            複数ページで使う構造と見た目は、Astroコンポーネントとcomponent SCSSで管理します。
+          </Text>
+          <p class="p-sample-actions">
+            <Button href="/about/">詳しく見る</Button>
+          </p>
+        </Card>
+
+        <Card>
+          <Heading as="h3" variant="subsection">フォーム例</Heading>
+          <form class="c-form" action="/" method="get">
+            <label class="c-form__label" for="sample-name">お名前</label>
+            <input class="c-form__input" id="sample-name" name="name" type="text">
+            <Button type="submit" variant="primary">送信する</Button>
+          </form>
+        </Card>
+      </div>
+    </Section>
+
+    <Section variant="subtle">
+      <Media variant="image-right">
+        <div slot="media" class="p-sample-media-placeholder" aria-hidden="true">
+          Media
+        </div>
+
+        <Heading as="h2" variant="colored">HTML担当者向けの書き方</Heading>
+        <Text>
+          見た目はvariantで選び、見出しレベルなどHTMLの意味はasで指定します。
+          コンポーネント内部のTypeScriptやSCSSを通常運用で触る必要はありません。
+        </Text>
+        <p class="p-sample-actions">
+          <Button href="/" variant="primary">トップへ戻る</Button>
+        </p>
+      </Media>
+    </Section>
+
+    <Section>
+      <Heading as="h2" variant="section">Figma Variant 検証</Heading>
+      <Text variant="muted">
+        Figma Design SystemのHeading、Button、Card、Mediaに対応する表示状態をまとめた検証用エリアです。
+        実デザインとのVisual QAは別途実施します。
+      </Text>
+
+      <div class="p-sample-contract">
+        <div class="p-sample-contract-group">
+          <Heading as="h3" variant="subsection">Heading variants</Heading>
+          <div class="p-sample-contract-stack">
+            <Heading as="h3" variant="default">Default</Heading>
+            <Heading as="h3" variant="page">Page</Heading>
+            <Heading as="h3" variant="section">Section</Heading>
+            <Heading as="h3" variant="subsection">Subsection</Heading>
+            <Heading as="h3" variant="border">Border</Heading>
+            <Heading as="h3" variant="colored">Colored</Heading>
+            <Heading as="h3" variant="background">Background</Heading>
+          </div>
+        </div>
+
+        <div class="p-sample-contract-group">
+          <Heading as="h3" variant="subsection">Button variants / state</Heading>
+          <div class="p-sample-contract-buttons">
+            <Button href="/about/" variant="default">Default</Button>
+            <Button href="/about/" variant="primary">Primary</Button>
+            <Button href="/about/" variant="text">Text</Button>
+            <Button type="button" variant="primary" disabled={true}>Disabled</Button>
+          </div>
+        </div>
+
+        <div class="p-sample-contract-group">
+          <Heading as="h3" variant="subsection">Card variants</Heading>
+          <div class="p-sample-grid">
+            <Card variant="default">
+              <Heading as="h4" variant="subsection">Default</Heading>
+              <p>標準カード</p>
+            </Card>
+            <Card variant="subtle">
+              <Heading as="h4" variant="subsection">Subtle</Heading>
+              <p>背景色を変えたカード</p>
+            </Card>
+          </div>
+        </div>
+
+        <div class="p-sample-contract-group">
+          <Heading as="h3" variant="subsection">Media / Image Left</Heading>
+          <Media variant="image-left">
+            <div slot="media" class="p-sample-media-placeholder" aria-hidden="true">Media</div>
+            <Heading as="h4" variant="border">Image Left</Heading>
+            <p>Image Rightと同じComponentを使い、variantで配置を切り替えます。</p>
+          </Media>
+        </div>
+      </div>
+    </Section>
+  </main>
+</BaseLayout>

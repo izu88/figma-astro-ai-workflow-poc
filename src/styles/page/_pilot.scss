@@ -1,0 +1,217 @@
+/* Figma Pilot site only: never modifies the generic starter pages. */
+.page-pilot {
+  --pilot-width: 1080px;
+  font-family: Inter, var(--font-family-base);
+  line-height: 1.5;
+}
+
+.p-pilot-header {
+  background: var(--color-surface-default);
+}
+
+.p-pilot-header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-24);
+  width: min(calc(100% - var(--space-page) * 2), var(--pilot-width));
+  margin: auto;
+  padding: 26px 0;
+}
+
+.p-pilot-header__brand,
+.p-pilot-footer__brand {
+  color: var(--color-brand-primary);
+  font-size: 22px;
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+}
+
+.p-pilot-header__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 15px;
+}
+
+.p-pilot-header__links a {
+  text-decoration: none;
+}
+
+.p-pilot-header__links a:hover,
+.p-pilot-header__links a:focus-visible {
+  color: var(--color-brand-primary);
+  text-decoration: underline;
+}
+
+.p-pilot-header__links [aria-current="page"] {
+  font-weight: var(--font-weight-bold);
+}
+
+.p-pilot-header__links span {
+  color: var(--color-text-muted);
+  cursor: default;
+}
+
+.page-pilot .c-hero__inner,
+.page-pilot .c-section__inner {
+  width: min(calc(100% - var(--space-page) * 2), var(--pilot-width));
+}
+
+.page-pilot .c-hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-24);
+  padding: 80px 0;
+}
+
+.page-pilot .c-section__inner {
+  padding: var(--space-64) 0;
+}
+
+.p-pilot-hero .p-pilot-eyebrow {
+  margin: 0;
+  color: var(--color-brand-primary);
+  font-size: 15px;
+  font-weight: var(--font-weight-bold);
+}
+
+.p-pilot-hero .c-heading--page {
+  margin: 0;
+}
+
+.p-pilot-hero__lead {
+  max-width: 950px;
+  margin: 0;
+  font-size: 19px;
+}
+
+.p-pilot-section .c-heading--section {
+  margin-bottom: var(--space-48);
+}
+
+.p-pilot-intro {
+  margin-bottom: var(--space-24);
+  color: var(--color-text-muted);
+  font-size: 16px;
+}
+
+.p-pilot-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 420px));
+  gap: var(--space-24);
+}
+
+.p-pilot-card {
+  min-height: 180px;
+}
+
+.p-pilot-card .c-heading--subsection {
+  margin-bottom: var(--space-16);
+}
+
+.p-pilot-card p {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.page-pilot .p-pilot-media {
+  grid-template-columns: minmax(0, 520px) minmax(0, 320px);
+  width: min(100%, 920px);
+}
+
+/* Image Left places visual first: visual 320px, copy 520px. */
+.page-pilot .p-pilot-media.c-media--image-left {
+  grid-template-columns: minmax(0, 320px) minmax(0, 520px);
+}
+
+.page-pilot .p-pilot-media .c-heading--colored {
+  margin-bottom: 0;
+}
+
+.page-pilot .p-pilot-media .c-media__body p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.p-pilot-media__placeholder {
+  display: grid;
+  height: 220px;
+  place-items: center;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-subtle);
+  color: var(--color-brand-primary);
+  font-size: 18px;
+  font-weight: var(--font-weight-bold);
+}
+
+/* On subtle sections, give the illustration slot a slightly darker backdrop. */
+.p-pilot-section--media .p-pilot-media__placeholder {
+  background: var(--color-surface-default);
+}
+
+.p-pilot-footer {
+  background: var(--color-surface-subtle);
+}
+
+.p-pilot-footer__inner {
+  width: min(calc(100% - var(--space-page) * 2), var(--pilot-width));
+  margin: auto;
+  padding: 36px 0;
+}
+
+.p-pilot-footer__brand {
+  margin-bottom: var(--space-12);
+  font-size: 18px;
+}
+
+.p-pilot-footer__note {
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+@media (max-width: 800px) {
+  .page-pilot .p-pilot-media,
+  .page-pilot .p-pilot-media.c-media--image-left {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+  }
+
+  .p-pilot-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .p-pilot-card {
+    min-height: auto;
+  }
+
+  .page-pilot .c-hero__inner {
+    padding: var(--space-48) 0;
+  }
+}
+
+@media (max-width: 540px) {
+  .p-pilot-header__inner {
+    display: block;
+    padding: var(--space-20) 0;
+  }
+
+  .p-pilot-header__links {
+    gap: var(--space-16);
+    margin-top: var(--space-16);
+    font-size: 14px;
+  }
+
+  .p-pilot-hero__lead {
+    font-size: 16px;
+  }
+
+  .page-pilot .c-section__inner {
+    padding: var(--space-48) 0;
+  }
+}

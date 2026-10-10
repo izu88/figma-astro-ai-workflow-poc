@@ -1,0 +1,28 @@
+.p-top-hero {
+  background: linear-gradient(
+    135deg,
+    var(--color-surface-subtle) 0%,
+    var(--color-surface-default) 100%
+  );
+}
+
+.p-top-heading {
+  font-size: clamp(36px, 8vw, 64px);
+  line-height: 1.08;
+}
+
+.p-top-action {
+  margin-top: var(--space-32);
+}
+
+.p-top-card-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-20);
+}
+
+@media (max-width: 800px) {
+  .p-top-card-list {
+    grid-template-columns: 1fr;
+  }
+}

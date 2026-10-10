@@ -1,0 +1,38 @@
+name: Agent Skills check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - ".github/skills/**"
+      - ".github/copilot-instructions.md"
+      - "AGENTS.md"
+      - "scripts/validate-skills.mjs"
+      - "package.json"
+      - "src/**"
+      - "astro.config.mjs"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.19.0"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate Agent Skills and build
+        run: npm run qa:agent

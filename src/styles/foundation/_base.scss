@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  background: var(--color-surface-default);
+  color: var(--color-text-default);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+}
+
+p {
+  line-height: var(--line-height-body);
+}
+
+code {
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-subtle);
+  padding: 0.12em 0.35em;
+  font-size: 0.92em;
+}
+
+main {
+  min-height: 60vh;
+}

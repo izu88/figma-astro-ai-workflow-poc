@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Heading from "../components/base/Heading.astro";
+import Text from "../components/base/Text.astro";
+import Button from "../components/base/Button.astro";
+import Card from "../components/patterns/Card.astro";
+import Hero from "../components/sections/Hero.astro";
+import Section from "../components/sections/Section.astro";
+
+const meta = {
+  title: "Home",
+  description: "Figma Design SystemとAstroコンポーネントを対応させる静的Web制作テンプレートです。",
+};
+
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+];
+---
+
+<BaseLayout meta={meta} breadcrumbs={breadcrumbs} bodyClass="page-top">
+  <main>
+    <Hero class="p-top-hero">
+      <Text variant="label">Static Site Template</Text>
+      <Heading as="h1" variant="page" class="p-top-heading">
+        Astro Simple Template
+      </Heading>
+      <Text variant="lead">
+        Figma Design SystemとAstroコンポーネントを対応させながら、HTML/CSS担当者にも読みやすい静的サイトを制作するためのテンプレートです。
+      </Text>
+      <p class="p-top-action">
+        <Button href="/sample/" variant="primary">サンプルページを見る</Button>
+      </p>
+    </Hero>
+
+    <Section>
+      <Heading as="h2" variant="section">基本方針</Heading>
+
+      <div class="p-top-card-list">
+        <Card>
+          <Heading as="h3" variant="subsection">ページはHTML感覚で編集</Heading>
+          <p>metaやbreadcrumbsはfrontmatter、本文はDesign System componentと通常HTMLを組み合わせて管理します。</p>
+        </Card>
+
+        <Card>
+          <Heading as="h3" variant="subsection">SCSS / TypeScriptは固定出力</Heading>
+          <p>SCSSとTypeScriptをbuildし、追いやすい <code>/assets/css/style.css</code> と <code>/assets/js/common.js</code> を出力します。</p>
+        </Card>
+
+        <Card>
+          <Heading as="h3" variant="subsection">Design Systemを再利用</Heading>
+          <p>Heading、Button、Card、Mediaなどの既存componentを優先し、FigmaからLocal MCPで実装しやすい構造を維持します。</p>
+        </Card>
+      </div>
+    </Section>
+  </main>
+</BaseLayout>

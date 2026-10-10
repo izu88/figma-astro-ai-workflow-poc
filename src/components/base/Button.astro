@@ -1,0 +1,55 @@
+---
+type ButtonVariant = "default" | "primary" | "text";
+type ButtonType = "button" | "submit" | "reset";
+
+interface Props {
+  href?: string;
+  variant?: ButtonVariant;
+  type?: ButtonType;
+  disabled?: boolean;
+  target?: "_self" | "_blank";
+  rel?: string;
+  class?: string;
+}
+
+const {
+  href,
+  variant = "default",
+  type = "button",
+  disabled = false,
+  target,
+  rel,
+  class: className = "",
+} = Astro.props;
+
+const classes = [
+  "c-button",
+  `c-button--${variant}`,
+  className,
+];
+
+const effectiveHref = disabled ? undefined : href;
+const effectiveRel =
+  rel ?? (target === "_blank" ? "noopener noreferrer" : undefined);
+---
+
+{href ? (
+  <a
+    href={effectiveHref}
+    class:list={classes}
+    target={target}
+    rel={effectiveRel}
+    aria-disabled={disabled ? "true" : undefined}
+    tabindex={disabled ? -1 : undefined}
+  >
+    <slot />
+  </a>
+) : (
+  <button
+    type={type}
+    class:list={classes}
+    disabled={disabled}
+  >
+    <slot />
+  </button>
+)}

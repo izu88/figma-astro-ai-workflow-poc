@@ -1,0 +1,27 @@
+{
+  "name": "figma-astro-ai-workflow-poc",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm run build:css && npm run build:js && astro dev",
+    "build": "npm run build:css && npm run build:js && astro build",
+    "build:css": "sass src/styles/style.scss public/assets/css/style.css --no-source-map",
+    "watch:css": "sass src/styles/style.scss public/assets/css/style.css --watch",
+    "preview": "astro preview",
+    "check:skills": "node scripts/validate-skills.mjs",
+    "qa:agent": "npm run check:skills && npm run build && npm run test:contract && npm run test:pilot",
+    "build:js": "tsc -p tsconfig.scripts.json",
+    "watch:js": "tsc -p tsconfig.scripts.json --watch",
+    "discover:pages": "node scripts/discover-pages.mjs dist",
+    "test:contract": "node --test tests/design-system-contract.test.mjs",
+    "test:pilot": "node --test tests/pilot-pages.test.mjs"
+  },
+  "dependencies": {
+    "astro": "^5.0.0"
+  },
+  "devDependencies": {
+    "sass": "^1.83.0",
+    "typescript": "^5.9.3"
+  }
+}

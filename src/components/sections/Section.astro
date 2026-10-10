@@ -1,0 +1,25 @@
+---
+type SectionVariant = "default" | "subtle";
+
+interface Props {
+  variant?: SectionVariant;
+  class?: string;
+}
+
+const {
+  variant = "default",
+  class: className = "",
+} = Astro.props;
+---
+
+<section
+  class:list={[
+    "c-section",
+    `c-section--${variant}`,
+    className,
+  ]}
+>
+  <div class="c-section__inner">
+    <slot />
+  </div>
+</section>

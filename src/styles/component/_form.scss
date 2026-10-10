@@ -1,0 +1,26 @@
+.c-form {
+  display: grid;
+  gap: 12px;
+}
+
+.c-form__label {
+  font-weight: 700;
+}
+
+.c-form__input,
+.c-form__textarea,
+.c-form__select {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: #ffffff;
+  padding: 10px 12px;
+}
+
+.c-form__input:focus,
+.c-form__textarea:focus,
+.c-form__select:focus {
+  border-color: var(--color-primary);
+  outline: 2px solid rgba(15, 118, 110, 0.18);
+  outline-offset: 1px;
+}

@@ -1,0 +1,28 @@
+---
+type CardTag = "article" | "div" | "section";
+type CardVariant = "default" | "subtle";
+
+interface Props {
+  as?: CardTag;
+  variant?: CardVariant;
+  class?: string;
+}
+
+const {
+  as = "article",
+  variant = "default",
+  class: className = "",
+} = Astro.props;
+
+const Tag = as;
+---
+
+<Tag
+  class:list={[
+    "c-card",
+    `c-card--${variant}`,
+    className,
+  ]}
+>
+  <slot />
+</Tag>

@@ -1,0 +1,13 @@
+.c-hero {
+  background: var(--color-surface-default);
+}
+
+.c-hero--subtle {
+  background: var(--color-surface-subtle);
+}
+
+.c-hero__inner {
+  width: min(100% - var(--space-page) * 2, var(--width-content));
+  margin: 0 auto;
+  padding: var(--space-64) 0;
+}

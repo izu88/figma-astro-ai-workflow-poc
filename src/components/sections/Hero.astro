@@ -1,0 +1,25 @@
+---
+type HeroVariant = "default" | "subtle";
+
+interface Props {
+  variant?: HeroVariant;
+  class?: string;
+}
+
+const {
+  variant = "subtle",
+  class: className = "",
+} = Astro.props;
+---
+
+<section
+  class:list={[
+    "c-hero",
+    `c-hero--${variant}`,
+    className,
+  ]}
+>
+  <div class="c-hero__inner">
+    <slot />
+  </div>
+</section>

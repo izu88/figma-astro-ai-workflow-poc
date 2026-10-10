@@ -1,0 +1,19 @@
+---
+interface Props {
+  active?: "home" | "services";
+}
+
+const { active = "home" } = Astro.props;
+---
+<header class="p-pilot-header">
+  <div class="p-pilot-header__inner">
+    <a class="p-pilot-header__brand" href="/pilot/">NAGI STUDIO</a>
+    <nav aria-label="パイロットサイトのナビゲーション">
+      <ul class="p-pilot-header__links">
+        <li><a href="/pilot/" aria-current={active === "home" ? "page" : undefined}>ホーム</a></li>
+        <li><a href="/pilot/services/" aria-current={active === "services" ? "page" : undefined}>サービス</a></li>
+        <li><span title="検証用サイトのためお問い合わせ機能は未実装">お問い合わせ</span></li>
+      </ul>
+    </nav>
+  </div>
+</header>
