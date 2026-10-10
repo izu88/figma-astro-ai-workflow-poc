@@ -38,8 +38,6 @@ flowchart TD
 - `npm run qa:agent`：Skills構造確認、ビルド、コンポーネント契約テスト、パイロットHTMLテスト
 - Playwright/Chromiumを用いたPC・SPのブラウザ確認用スクリプト・GitHub Actions設定
 
-**制約・未検証**：Figma Agent上でのカスタムSkills自動実行は未検証。FigmaのSP専用デザインは未作成で、モバイルのFigma一致は未判定。Figmaとのピクセル単位の自動Visual Diffは実施済みと主張しません。
-
 ## 試す
 
 Node.js 20.19+ を想定。
